@@ -4,11 +4,13 @@ all: notes.pdf slides.pdf
 SRC+=		preamble.tex
 SRC+=		abstract.tex contents.tex
 
+DEPENDS+= 	bibsp.sty anon.bib
+
 notes.pdf: notes.tex
-notes.pdf: ${SRC}
+notes.pdf: ${SRC} ${DEPENDS}
 
 slides.pdf: slides.tex
-slides.pdf: ${SRC}
+slides.pdf: ${SRC} ${DEPENDS}
 
 
 .PHONY: clean
@@ -18,3 +20,6 @@ clean:
 
 INCLUDE_MAKEFILES=./makefiles
 include ${INCLUDE_MAKEFILES}/tex.mk
+
+INCLUDE_BIBSP=./bibsp
+include ${INCLUDE_BIBSP}/bibsp.mk
