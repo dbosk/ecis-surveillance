@@ -4,7 +4,7 @@ all: notes.pdf slides.pdf
 SRC+=		preamble.tex
 SRC+=		abstract.tex contents.tex
 
-DEPENDS+= 	bibsp.sty anon.bib
+DEPENDS+= 	bibsp.sty anon.bib ac.bib
 
 notes.pdf: notes.tex
 notes.pdf: ${SRC} ${DEPENDS}
