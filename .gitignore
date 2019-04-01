@@ -1,3 +1,10 @@
+anon.bib
+bibsp.sty
+ecis-surveillance.bib
+ltxobj/
+notes.pdf
+slides.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
