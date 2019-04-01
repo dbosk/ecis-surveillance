@@ -1,10 +1,13 @@
 \title{%
-  Privacy-enhancing technologies and surveillance in the digital society
+  Privacy-enhancing technologies and surveillance in the digital
+  society. Position paper and discussion prompt.
 }
+\date{}
 \author{Daniel Bosk}
 \author{Sonja Buchegger}
 \institute{%
-  KTH EECS\\
+  KTH Royal Institute of Technology\\ EECS School of Electrical
+  Engineering and Computer Science\\
   \email{\{dbosk,buc\}@kth.se}
 }
 
@@ -22,83 +25,94 @@
 %\end{abstract}
 
 
-\section{Introduction}
+%\section{Introduction}
 
-\paragraph{What is the problem?}
+%\paragraph{What is the problem?}
 
-There are numerous \acp{PET} out there that would make digital surveillance 
-more difficult.
-Why are they not used more and how can we change that?
-
-For instance: Why do people not encrypt their emails?
-Is it usability, does it introduce problems, or is it simply the network effect 
-(no one else does it)?
-
-Why do people not browse the web anonymously with Tor?
-Is it usability, \ie too slow, makes web sites unusable (blocking some active 
-contents)?
-Or do people not see a problem?
-
-Or do these technologies solve the wrong problem?
-
-\paragraph{Why is it a problem?}
-
-The answer to these questions will help researchers in the area of \acp{PET} to 
-adapt their research and the tools they produce so that they get more 
+\begin{abstract} 
+The field of \acp{PET}, a subfield of Computer Science, aims at
+developing tools to counter surveillance and to give people control over
+their data, usually by cryptographic means. There are numerous
+\acp{PET} available that would make digital surveillance more
+difficult, but few of them are widely used. We list some of them along
+with some others that have come out of research in the past or are
+active research areas, both from the \acp{PET} community at large and
+our own research group, to give a flavor of the technical
+possibilities. We conclude with a discussion prompt on the mismatch
+between available and used \acp{PET} for surveillance resistance. This
+lack of technology transfer is especially grave when considering the
+increase in surveillance and privacy breaches in recent years.
+Insights will help \acp{PET} researchers  to 
+adapt their methodology and the tools they produce to get more 
 wide-spread adoption.
-This is especially important in this area since many privacy properties depend 
-on many users~\cite{AnonymityLovesCompany}.
+\end{abstract}
 
-\paragraph{Why is this important?}
-
-The importance of this is illustrated by examples like Cambridge 
-Analytica~\cite{%
-  cambridge-analytica-wired,
-  cambridge-analytica-guardian,
-  cambridge-analytica-nytimes,
-  cambridge-analytica-wp%
-}, where the data from the surveillance apparatus was used to manipulate entire 
-populations.
+%\paragraph{Why is it a problem?}
 
 
-\section{Deployed \acp{PET}}
 
-WhatsApp started to introduce \ac{E2E} encryption for its users in 
-2014~\cite{WhatsAppIntroducesE2Eencryption} (completed in 
-2016~\cite{WhatsAppE2Ecomplete}).
-It seems that this was more the company's political stance rather than user 
-demand (TextSecure, now Signal, has been around since 2010).
+%\paragraph{Why is this important?}
 
-This prevents governments (\ie service providers) from reading the contents of 
-users' messages.
-But it still allows WhatsApp, and now Facebook, to see metadata, \ie who 
-communicates with whom and when.
-Some of this can also be inferred through traffic analysis by \eg Internet and 
-telephony service providers.
-Much information can be inferred from metadata~\cite{DevilInMetadata}.
+
+
+\section{Examples of Deployed \acp{PET}}
+
+WhatsApp started to introduce \ac{E2E} encryption for its users in
+2014~\cite{WhatsAppIntroducesE2Eencryption} (completed in
+2016~\cite{WhatsAppE2Ecomplete}).  It seems that this was more the
+company's political stance rather than user demand (TextSecure, now
+Signal, has been around since 2010).
+
+This prevents governments (\ie service providers) from reading the
+contents of users' messages.  It still, however, allows WhatsApp, and
+now Facebook, to see metadata, \ie who communicates with whom and
+when. Much information can be inferred from
+metadata~\cite{DevilInMetadata}.  Some of the metadata can also be
+inferred through traffic analysis by \eg Internet and telephony
+service providers.
+
 
 Tor~\cite{Tor}, on the other hand, also hides metadata.
-Its mainly known in the media for the \enquote{Dark Web}~\cite{?} and its main 
-use comes through the Tor Browser~\cite{?}.
-Tor Browser additionally blocks trackers, \enquote{Like Buttons} (\ie more 
+It is mainly known in the media for the \enquote{Dark Web}%~\cite{?} 
+and its main use comes through the Tor Browser.%~\cite{?}.
+The Tor Browser additionally blocks trackers, \enquote{Like Buttons} (\ie more 
 trackers) and other elements that can be used for tracking (\eg browser 
 fingerprinting).
 This prevents web sites from tracking users.
 
-However, Tor Browser cannot prevent the surveillance apparatus, \eg Facebook, 
-from collecting data if the user actively uses Facebook.
-One of the more known Facebook alternatives that comes the closest to solving 
-the problem is diaspora*~\cite{?}.
-All data is private to the individual, it tries to break the centralization 
-which caused the metadata problems above, but it is not fully decentralized.
+However, Tor Browser cannot prevent the provider (and indirectly surveillance), \eg Facebook, 
+from collecting data if the user is logged in. Some of the better
+known Facebook alternatives that attempt to solve this problem by
+some degree of decentralization are  diaspora*%~\cite{?}.
+and mastodon. 
+%All data is private to the individual, it tries to break the centralization 
+%which caused the metadata problems above, but it is not fully decentralized.
 
+Cryptocurrencies such as bitcoin are an attempt at coming closer to
+anonymous e-cash. PGP (Pretty Good Privacy) allows users to send and
+receive encrypted e-mail.
 
-\section{Future \acp{PET}}
+\section{\acp{PET} Research}
 
-While decentralization removes this position of power for one entity, \eg 
-Facebook, it also makes many things more difficult.
+Anonymous credentials are a prime example of available \acp{PET},
+even backed by industry (with similar approaches from IBM and
+Microsoft), that nevertheless have not been deployed. The idea behind
+anonymous credentials is simple: we often share more details and
+personally identifying information than needed for a particular
+situation or transaction. Anonymous credentials make use of
+zero-knowledge proofs to allow people to provide proof of necessary
+conditions, \eg that they have an account with a company they want to
+stream a move from, that they are old enough for a particular movie
+rating, that they have a valid credit card, and that they have paid
+for their subscription, all without revealing unnecessary particulars
+such as their name, date of birth, credit card number. 
+
+Besides cryptography, another promising approach for privacy
+protection and surveillance resistance is decentralization. 
+While decentralization removes the best position for surveillance for one entity, \eg 
+a social network service provider such as Facebook, it introduces new problems.
 In a decentralized system, all transactions are made in public, this means that 
-suddenly everyone is in Facebook's power position.
+suddenly everyone is in Facebook's position.
 This must be considered when designing such systems.
 We will now present some examples from our work.
 
@@ -124,7 +138,7 @@ cannot see who else is invited until they accept the invitation.
 
 Bosk analysed the privacy implications of calendar sharing for scheduling 
 events without active involvement of all people.
-This allowed Bosk, Buchegger and Wåreus propose designs where leaks are 
+This allowed Bosk, Buchegger and Wåreus to propose designs where leaks are 
 limited, \eg by rate limiting and differential privacy.
 
 As a final example, Bosk, Bouget, Buchegger and Gambs provided a protocol for 
@@ -139,6 +153,53 @@ cannot produce two proofs to be counted twice.
 The latter is needed to for the correctness of the count, the former to protect 
 against someone using a participant's participation against them.
 
+\section{Discussion Prompt}
+Although legions of Computer Scientists have been developing
+\acp{PET}, only a small fraction of the results are widely known in
+the general population and only few of these actively used by
+significant parts of the population. 
+
+Clearly, there is a mismatch between what Computer Scientists think
+people should do to protect against surveillance by government or
+commercial entities and reality.
+
+Whether it is a case of engineer's disease providing technical
+solutions to people problems, lack of usability considerations,
+negative impact on the performance of the privacy-enhanced service,
+apathy, lack of communication, solving the wrong problems, the network
+effect not being reached, perceptions and beliefs or fear of raising
+suspicions, or any other reason or combination of factors, is
+unclear. This implies that it is also unclear what could/should be
+done to change that.
+
+Input and insights from other disciplines concerned with surveillance
+could help inform research on \acp{PET} to make it more relevant,
+effective, and actually used to counter surveillance. This is
+especially important in this area since many privacy properties depend
+on a critical mass of users~\cite{AnonymityLovesCompany} and in an era
+where examples like Cambridge 
+Analytica~\cite{%
+  cambridge-analytica-wired,
+  cambridge-analytica-guardian,
+  cambridge-analytica-nytimes,
+  cambridge-analytica-wp%
+} illustrate how data collection and analysis can be used for the
+purpose of manipulation of millions of users. 
+
+
+
+% Why are they not used more and how can we change that?
+
+% For instance: Why do people not encrypt their emails?
+% Is it usability, does it introduce problems, or is it simply the network effect 
+% (no one else does it)?
+
+% Why do people not browse the web anonymously with Tor?
+% Is it usability, \ie too slow, makes web sites unusable (blocking some active 
+% contents)?
+% Or do people not see a problem?
+
+% Or do these technologies solve the wrong problem?
 
 %%% REFERENCES %%%
 
