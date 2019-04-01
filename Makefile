@@ -4,7 +4,7 @@ all: notes.pdf slides.pdf
 SRC+=		preamble.tex ecis-surveillance.bib
 SRC+=		abstract.tex contents.tex
 
-DEPENDS+= 	bibsp.sty anon.bib ac.bib ppes.bib
+DEPENDS+= 	bibsp.sty anon.bib ac.bib ppes.bib meta.bib
 
 notes.pdf: notes.tex
 notes.pdf: ${SRC} ${DEPENDS}
